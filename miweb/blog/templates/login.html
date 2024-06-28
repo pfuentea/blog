@@ -4,11 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{titulo}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
 </head>
 <body>
     <h1>{{titulo}} : Bienvenido {{nombre}} </h1>
     <form action="">
         <input type="text" name="username" placeholder="Username">
     </form>
+    <img src="{% static '/img/slider-2.png' %}" alt="">
+
+    
+
 </body>
 </html>
+
