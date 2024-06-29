@@ -1,21 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{titulo}}</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static '/css/style.css' %}">
-</head>
-<body>
-    <h1>{{titulo}} : Bienvenido {{nombre}} </h1>
-    <form action="">
-        <input type="text" name="username" placeholder="Username">
-    </form>
-    <img src="{% static '/img/slider-2.png' %}" alt="">
+{% extends "./base.html" %}
+{% block titulo %}
+    {{title}}
+{% endblock %}
+{% block contenido %}
 
     
+<div class="container">
 
-</body>
-</html>
+    <h1>{{titulo}} : Bienvenido {{nombre}} </h1>
+    <form action="" method="POST" action="{% url 'login' %}">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Nombre </label>
+                    <input type="text" class="form-control" id="name" name="name" >
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email </label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" >
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password </label>
+                    <input type="password" class="form-control" id="password"  name="password" >
+                </div>
+                <div class="mb-3">
+                    <label for="edad" class="form-label">Edad </label>
+                    <input type="number" class="form-control" id="edad" name="edad" >
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </div>
+    
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
 

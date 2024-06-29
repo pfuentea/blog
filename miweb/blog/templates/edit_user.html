@@ -1,0 +1,43 @@
+{% extends "./base.html" %}
+{% block titulo %}
+    {{title}}
+{% endblock %}
+{% block contenido %}
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+
+            <form action="" method="POST" action="{% url 'editar_usuario'  user.id %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nombre </label>
+                            <input type="text" class="form-control" id="name" name="name" value="{{usuario.name}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email </label>
+                            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email" value="{{usuario.email}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password </label>
+                            <input type="password" class="form-control" id="password"  name="password" value="{{usuario.password}}" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="edad" class="form-label">Edad </label>
+                            <input type="number" class="form-control" id="edad" name="edad" value="{{usuario.edad}}">
+                        </div>
+            
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success">Enviar</button>
+                        </div>
+            
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -17,6 +17,14 @@ urlpatterns = [
 
     path('time_display/', views.time_display , name='time_display'),
 
+    #ejemplo de redirección
+    path('redireccion/', views.redireccion , name='redireccion'),
+    #CRUD USER: EDITAR
+    path('editar_usuario/<int:user_id>', views.editar_usuario , name='editar_usuario'),
+    path('borrar_usuario/<int:user_id>', views.borrar_usuario , name='borrar_usuario'),
+
+    
+    
     
 
 

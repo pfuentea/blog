@@ -6,13 +6,42 @@
 
 
 {% block contenido %}
+
+{% load static %}
 <div class="container">
     <div class="row">
         <div class="col">
             <h1>DASHBOARD</h1>
-            <p>
-               BREAK #3 hasta las 22:25 (15 min)
-            </p>
+            <table class="table table-striped">
+                <thead>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </thead>
+            
+                <tbody>
+                    {% for user in usuarios %}
+                    <tr>
+                        <td>
+                            {{user.name}}
+                        </td>
+                        <td>
+                            {{user.email}}
+                        </td>
+                        <td>
+                            <a href="{% url 'editar_usuario' user.id %}" class="btn btn-warning">
+                            Editar
+                            </a>
+                            
+                            <a href="{% url 'borrar_usuario' user.id %}" class="btn btn-danger">
+                                Borrar
+                            </a>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}   
+                </tbody>
+            </table>              
             
         </div>
     </div>
